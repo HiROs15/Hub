@@ -1,0 +1,5 @@
+name: Hub
+main: hiros15.hub.Hub
+version: 1.0
+commands:
+  hub:

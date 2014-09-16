@@ -1,5 +1,6 @@
 package hiros15.hub;
 
+import hiros15.hub.Commands.Commands;
 import hiros15.hub.Config.HubConfig;
 import hiros15.hub.Events.PlayerJoin;
 
@@ -18,6 +19,7 @@ public class Hub extends JavaPlugin {
 	public void onEnable() {
 		setupEvents();
 		setupConfigFiles();
+		setupCommands();
 	}
 	
 	@Override
@@ -35,5 +37,9 @@ public class Hub extends JavaPlugin {
 		HubConfig hubconfig = new HubConfig(this);
 		hubconfig.getConfig().set("setup", true);
 		hubconfig.saveConfig();
+	}
+	
+	public void setupCommands() {
+		this.getCommand("hub").setExecutor(new Commands(this));
 	}
 }
