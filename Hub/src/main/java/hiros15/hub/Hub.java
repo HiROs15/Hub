@@ -2,6 +2,8 @@ package hiros15.hub;
 
 import hiros15.hub.Commands.Commands;
 import hiros15.hub.Config.HubConfig;
+import hiros15.hub.Events.PlayerBreakBlockEvent;
+import hiros15.hub.Events.PlayerChangeHunger;
 import hiros15.hub.Events.PlayerJoin;
 
 import org.bukkit.plugin.java.JavaPlugin;
@@ -31,6 +33,8 @@ public class Hub extends JavaPlugin {
 	public void setupEvents() {
 		//When the player joins the server
 		getServer().getPluginManager().registerEvents(new PlayerJoin(this), this);
+		getServer().getPluginManager().registerEvents(new PlayerBreakBlockEvent(this), this);
+		getServer().getPluginManager().registerEvents(new PlayerChangeHunger(this), this);
 	}
 	
 	public void setupConfigFiles() {
