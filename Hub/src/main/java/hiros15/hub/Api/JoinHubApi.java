@@ -1,7 +1,7 @@
 package hiros15.hub.Api;
 
 import hiros15.hub.Data.HubData;
-
+import hiros15.hub.HubScoreboard.ScoreboardApi;
 import net.md_5.bungee.api.ChatColor;
 
 import org.bukkit.GameMode;
@@ -29,7 +29,7 @@ public class JoinHubApi {
 	 */
 	public void joinMessage(Player player) {
 		//No message as of now.
-		player.sendMessage("");
+		//player.sendMessage("");
 	}
 	
 	public void joinHub(Player player) {
@@ -43,6 +43,7 @@ public class JoinHubApi {
 		}
 		teleportPlayerToHub(player);
 		setupPlayerEffects(player);
+		setupPlayerHubScoreboard(player);
 	}
 	
 	public void teleportPlayerToHub(Player player) {
@@ -52,7 +53,12 @@ public class JoinHubApi {
 	
 	public void setupPlayerEffects(Player player) {
 		player.setGameMode(GameMode.ADVENTURE);
-		player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 9999999, 3));
+		player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 9999999, 1));
 		player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 9999999, 5));
+	}
+	
+	public void setupPlayerHubScoreboard(Player player) {
+		ScoreboardApi scoreboardapi = new ScoreboardApi(plugin);
+		scoreboardapi.setScoreboard(player);
 	}
 }

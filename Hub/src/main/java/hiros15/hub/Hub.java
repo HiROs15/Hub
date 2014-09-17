@@ -4,7 +4,9 @@ import hiros15.hub.Commands.Commands;
 import hiros15.hub.Config.HubConfig;
 import hiros15.hub.Events.PlayerBreakBlockEvent;
 import hiros15.hub.Events.PlayerChangeHunger;
+import hiros15.hub.Events.PlayerDamagePlayer;
 import hiros15.hub.Events.PlayerJoin;
+import hiros15.hub.HubScoreboard.ScoreboardApi;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -22,6 +24,7 @@ public class Hub extends JavaPlugin {
 		setupEvents();
 		setupConfigFiles();
 		setupCommands();
+		setupScoreboard();
 	}
 	
 	@Override
@@ -35,6 +38,7 @@ public class Hub extends JavaPlugin {
 		getServer().getPluginManager().registerEvents(new PlayerJoin(this), this);
 		getServer().getPluginManager().registerEvents(new PlayerBreakBlockEvent(this), this);
 		getServer().getPluginManager().registerEvents(new PlayerChangeHunger(this), this);
+		getServer().getPluginManager().registerEvents(new PlayerDamagePlayer(this), this);
 	}
 	
 	public void setupConfigFiles() {
@@ -45,5 +49,10 @@ public class Hub extends JavaPlugin {
 	
 	public void setupCommands() {
 		this.getCommand("hub").setExecutor(new Commands(this));
+	}
+	
+	@SuppressWarnings("unused")
+	public void setupScoreboard() {
+		ScoreboardApi scoreboardapi = new ScoreboardApi(this);
 	}
 }
