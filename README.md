@@ -1,4 +1,4 @@
-<code>
+<!--
 <script type="text/javascript">
 var string = "Hello my name is kyle. What is yours? ";
 var length = 16;
