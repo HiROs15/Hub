@@ -1,4 +1,4 @@
-<!--
+[code]
 <script type="text/javascript">
 var string = "Hello my name is kyle. What is yours? ";
 var length = 16;
@@ -44,4 +44,4 @@ setTimeout("start()",300);
 <div id='temp'>fd</div>
 <input type=button value=START onclick="start()">
 </body>
-</code>
+[/code]
